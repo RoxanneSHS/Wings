@@ -19,7 +19,7 @@ This mod adds quite a bit of extra content for everyone's favorite wingless wond
 
 To install:
 
-Simply unrar to your game directory (For me its C:\Program Files (x86)\BeamDog\Games\00783\), and then double click the file ‘setup-Wings.exe’, and follow the instructions.
+Simply unrar to your game directory, and then double click the file ‘setup-Wings.exe’, and follow the instructions.
 
 To uninstall, just double click setup-Wings.exe again.
 

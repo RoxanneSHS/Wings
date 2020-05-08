@@ -5,11 +5,11 @@ BACKUP ~Wings/backup~
 SUPPORT ~roxanne@baldursextendedworld.com~
 
 // --------------------------------------------
-// BG2 Wings v0.92
+// BG2 Wings v0.93
 // --------------------------------------------
 
 // Language
-AUTO_TRA ~Wings/tra/%s~
+
 
 ALWAYS
   ACTION_IF (GAME_IS ~eet~) BEGIN
@@ -22,12 +22,29 @@ ALWAYS
     OUTER_SPRINT name_source ~bg2_chapter_%i%~
     OUTER_SET EVAL ~%name_source%~ = bg2_chapter
   END
+  
+  ACTION_DEFINE_ARRAY fl#reload BEGIN setup END
+  LAF HANDLE_CHARSETS
+    INT_VAR
+      infer_charset = 1
+    STR_VAR
+      tra_path = ~wings/tra~
+      reload_array = fl#reload
+      default_language = ~English~
+  END
+
 END
 
-LANGUAGE 
-         ~English~
+AUTO_TRA ~Wings/tra/%s~
+
+LANGUAGE  ~English~
          ~english~
          ~Wings/tra/english/WingsSetup.tra~
+
+LANGUAGE  ~Russian~
+         ~russian~
+         ~Wings/tra/russian/WingsSetup.tra~
+         
 
 // Component setup
 BEGIN ~Wings for BG2:EE and EET~
@@ -60,33 +77,42 @@ COMPILE EVALUATE_BUFFER ~Wings/dialogue/B2#Artist.d~
 USING   ~Wings/tra/%s/B2#Artist.tra~
 
 // Scripts
-  EXTEND_TOP ~AR1100.bcs~ ~Wings/Scripts/AR1100.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~AR1100.bcs~ ~Wings/Scripts/AR1100.baf~
+ EVALUATE_BUFFER
     EVALUATE_BUFFER
 
-  EXTEND_TOP ~AR0300.bcs~ ~Wings/Scripts/AR0300.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~AR0300.bcs~ ~Wings/Scripts/AR0300.baf~
+ EVALUATE_BUFFER
     EVALUATE_BUFFER
 
-  EXTEND_TOP ~AR0607.bcs~ ~Wings/Scripts/AR0607.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~AR0607.bcs~ ~Wings/Scripts/AR0607.baf~
+ EVALUATE_BUFFER
     EVALUATE_BUFFER
 
-  EXTEND_TOP ~AR0700.bcs~ ~Wings/Scripts/AR0700.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~AR0700.bcs~ ~Wings/Scripts/AR0700.baf~
+ EVALUATE_BUFFER
     EVALUATE_BUFFER
   
   EXTEND_TOP ~AERI25.bcs~ ~Wings/Scripts/B2#A25n.baf~ 
 
-  EXTEND_TOP ~AERIE.bcs~ ~Wings/Scripts/B2#AERIE.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~AERIE.bcs~ ~Wings/Scripts/B2#AERIE.baf~
+ EVALUATE_BUFFER
     EVALUATE_BUFFER
 
-  EXTEND_TOP ~AERIED.bcs~ ~Wings/Scripts/B2#AERIED.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~AERIED.bcs~ ~Wings/Scripts/B2#AERIED.baf~
+ EVALUATE_BUFFER
     EVALUATE_BUFFER
 
-  EXTEND_BOTTOM ~BALDUR.bcs~ ~Wings/Scripts/B2#BALDUR.baf~ EVALUATE_BUFFER
+  EXTEND_BOTTOM ~BALDUR.bcs~ ~Wings/Scripts/B2#BALDUR.baf~
+ EVALUATE_BUFFER
     EVALUATE_BUFFER
 
-  EXTEND_BOTTOM ~BALDUR25.bcs~ ~Wings/Scripts/B2#BALDUR25.baf~ EVALUATE_BUFFER
+  EXTEND_BOTTOM ~BALDUR25.bcs~ ~Wings/Scripts/B2#BALDUR25.baf~
+ EVALUATE_BUFFER
     EVALUATE_BUFFER
 
-  EXTEND_TOP ~NEERAD.bcs~ ~Wings/Scripts/B2#NEERAD.baf~ EVALUATE_BUFFER
+  EXTEND_TOP ~NEERAD.bcs~ ~Wings/Scripts/B2#NEERAD.baf~
+ EVALUATE_BUFFER
     EVALUATE_BUFFER
 
 COMPILE EVALUATE_BUFFER ~Wings/Scripts/B2#PHIL.baf~
@@ -256,7 +282,8 @@ BEGIN ~Restore missing banters?~
 
 COMPILE EVALUATE_BUFFER ~Wings/Dialogue/B2#MissBant.d~
 
-  EXTEND_BOTTOM ~YOSHIMO.bcs~ ~Wings/Scripts/B2#YOSHIMm.baf~ EVALUATE_BUFFER
+  EXTEND_BOTTOM ~YOSHIMO.bcs~ ~Wings/Scripts/B2#YOSHIMm.baf~
+ EVALUATE_BUFFER
     EVALUATE_BUFFER
 
 BEGIN ~Remove conflict with Hexxat?~

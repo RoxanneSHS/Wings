@@ -5,7 +5,7 @@ BACKUP ~Wings/backup~
 SUPPORT ~roxanne@baldursextendedworld.com~
 
 // --------------------------------------------
-// BG2 Wings v0.93
+VERSION ~v0.94~
 // --------------------------------------------
 
 // Language
@@ -23,15 +23,6 @@ ALWAYS
     OUTER_SET EVAL ~%name_source%~ = bg2_chapter
   END
   
-  ACTION_DEFINE_ARRAY fl#reload BEGIN setup END
-  LAF HANDLE_CHARSETS
-    INT_VAR
-      infer_charset = 1
-    STR_VAR
-      tra_path = ~wings/tra~
-      reload_array = fl#reload
-      default_language = ~English~
-  END
 
 END
 
